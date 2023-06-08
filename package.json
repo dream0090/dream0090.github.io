@@ -1,0 +1,83 @@
+{
+    "homepage": "https://railmapgen.github.io/rmg",
+    "name": "rmg",
+    "repository": "github:railmapgen/rmg",
+    "bugs": {
+        "url": "https://github.com/railmapgen/rmg/issues"
+    },
+    "license": "GPL-3.0-only",
+    "dependencies": {
+        "@chakra-ui/react": "^2.7.0",
+        "@emotion/react": "^11.11.0",
+        "@emotion/styled": "^11.11.0",
+        "@railmapgen/rmg-components": "^7.1.6",
+        "@railmapgen/rmg-palette-resources": "^0.8.6",
+        "@railmapgen/rmg-runtime": "^6.0.3",
+        "@railmapgen/rmg-templates-resources": "^2.0.4",
+        "@railmapgen/rmg-translate": "^3.0.1",
+        "@reduxjs/toolkit": "^1.9.5",
+        "ag-grid-community": "^29.3.5",
+        "ag-grid-react": "^29.3.5",
+        "electron-is-dev": "^2.0.0",
+        "framer-motion": "^10.12.16",
+        "jszip": "^3.10.1",
+        "nanoid": "^4.0.2",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-i18next": "^12.3.1",
+        "react-icons": "^4.9.0",
+        "react-redux": "^8.0.7",
+        "react-router-dom": "^6.11.2"
+    },
+    "devDependencies": {
+        "@testing-library/jest-dom": "^5.16.5",
+        "@testing-library/react": "^14.0.0",
+        "@types/node": "^18.16.5",
+        "@types/react": "^18.2.7",
+        "@types/react-dom": "^18.2.4",
+        "@types/react-router-dom": "^5.3.3",
+        "@types/redux-mock-store": "^1.0.3",
+        "@typescript-eslint/eslint-plugin": "^5.59.8",
+        "@typescript-eslint/parser": "^5.59.8",
+        "@vitejs/plugin-legacy": "^4.0.4",
+        "@vitejs/plugin-react": "^4.0.0",
+        "electron": "^22.0.3",
+        "electron-builder": "^23.6.0",
+        "eslint": "^8.41.0",
+        "eslint-plugin-prettier": "^4.2.1",
+        "eslint-plugin-react": "^7.32.2",
+        "jsdom": "^22.1.0",
+        "prettier": "^2.8.8",
+        "redux-mock-store": "^1.5.4",
+        "terser": "^5.17.7",
+        "typescript": "^5.0.4",
+        "vite": "^4.3.9",
+        "vitest": "^0.31.4",
+        "wait-on": "^7.0.1"
+    },
+    "scripts": {
+        "dev": "vite --host",
+        "build": "tsc && vite build",
+        "build:electron": "tsc && vite build --config vite.config.electron.ts",
+        "test": "vitest",
+        "lint": "eslint ./src",
+        "lint:fix": "eslint ./src --fix",
+        "preview": "vite preview",
+        "electron-dev": "concurrently \"vite --config vite.config.electron.ts\" \"wait-on http://localhost:5173/ && electron .\"",
+        "electron-package": "npx electron-builder build -c.extraMetadata.main=build/electron.js"
+    },
+    "version": "5.10.17",
+    "main": "public/electron.js",
+    "build": {
+        "extends": "react-cra",
+        "publish": [
+            {
+                "provider": "github",
+                "vPrefixedTagName": false
+            }
+        ],
+        "snap": {
+            "publish": "github"
+        }
+    }
+}
